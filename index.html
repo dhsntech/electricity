@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>電學計算工具</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>電學計算工具</h1>
+    <p class="author">作者：Pudding &amp; Dinher</p>
+
+    <label for="formula">選擇計算公式：</label>
+    <select id="formula" onchange="updateFields()">
+      <option value="ohm">歐姆定律 (V = I·R)</option>
+      <option value="power">功率公式 (P = V·I)</option>
+      <option value="resistance_series">串聯電阻 (Rₜ = R₁+R₂)</option>
+      <option value="resistance_parallel">並聯電阻 (1/Rₜ = 1/R₁+1/R₂)</option>
+      <option value="capacitor_charge">電容電荷 (Q = C·V)</option>
+      <option value="inductor_voltage">感應電壓 (V = L·dI/dt)</option>
+      <option value="coulomb_law">庫侖定律 (F = k·q₁q₂/r²)</option>
+      <option value="capacitance_series">串聯電容 (1/Cₜ = 1/C₁+1/C₂)</option>
+      <option value="capacitance_parallel">並聯電容 (Cₜ = C₁+C₂)</option>
+      <option value="inductance_series">串聯電感 (Lₜ = L₁+L₂)</option>
+      <option value="inductance_parallel">並聯電感 (1/Lₜ = 1/L₁+1/L₂)</option>
+      <option value="ac_rms">交流有效值 (V₍rms₎ = V₍pk₎/√2)</option>
+      <option value="resistance_temperature">電阻溫變 (Rₜ = R₀(1+αΔT))</option>
+      <option value="magnetic_field">磁場強度 (B = μ₀I/2πr)</option>
+      <option value="faraday_law">法拉第定律 (ε = −N·dΦ/dt)</option>
+      <option value="electric_energy">電場能量 (U = ½ C V²)</option>
+      <option value="current_density">電流密度 (J = I/A)</option>
+      <option value="voltage_divider">分壓 (V₂ = Vin·R₂/(R₁+R₂))</option>
+      <option value="three_phase_power">三相功率 (P = √3·V·I·cosθ)</option>
+    <option value="three_phase_voltage_star">三相相電壓 (Y接法) (V<sub>ph</sub> = V<sub>line</sub> / √3)</option>
+    <option value="three_phase_voltage_delta">三相線電壓 (Δ接法) (V<sub>line</sub> = V<sub>ph</sub> × √3)</option>
+    <option value="three_phase_current_star">三相相電流 (Y接法) (I<sub>ph</sub> = I<sub>line</sub> / √3)</option>
+    <option value="three_phase_current_delta">三相線電流 (Δ接法) (I<sub>line</sub> = I<sub>ph</sub> × √3)</option>
+    </select>
+
+    <div id="inputFields"></div>
+
+    <button onclick="calculate()">計算</button>
+
+    <div class="result-box">
+      <p id="result"></p>
+      <p id="steps" class="steps"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
