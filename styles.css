@@ -1,4 +1,20 @@
 /* —— 全域 —— */
+
+:root {
+  --pink: #f472b6;          /* 主色：粉紅 */
+  --pink-hover: #ec4899;    /* hover 粉紅 */
+  --light-pink: #fce7f3;    /* 淡粉 */
+  --white: #ffffff;
+  --black: #1f1f1f;
+  --gray: #2c2f33;
+  --light-gray: #f5f6f7;
+  --border: #e5e7eb;
+  --radius: 10px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --transition: all 0.3s ease;
+}
+
+
 *{box-sizing:border-box}
 body{
   font-family:Arial,Helvetica,sans-serif;
@@ -24,22 +40,54 @@ h1{color:#d77a8a;margin-top:0}
 .author{color:#888;font-style:italic;margin-bottom:20px}
 
 /* 表單元件 */
-label,select,input{font-size:17px;margin:8px 0}
+label,select,input{font-size:17px;margin:8px 0;width: auto;}
 input{padding:6px 10px;border:2px solid #d77a8a;border-radius:10px;width:140px;text-align:center}
 
 /* 按鈕 */
-button{
-  margin-top:14px;
-  background:#d77a8a;
-  color:#fff;
-  border:none;
-  padding:12px 26px;
-  font-size:18px;
-  border-radius:10px;
-  cursor:pointer;
-  transition:.25s;
+button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  padding: 0.6em 1.2em;
+  font-size: 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
 }
-button:hover{background:#c4667b}
+
+button:hover {
+  background-color: var(--pink-hover);
+  transform: scale(1.025);
+}
+
+input[type="text"],
+input[type="password"],
+input:not([type]),
+input[type="number"],
+input[type="search"],
+textarea,
+select {
+  background-color: var(--dropper-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 0.6em 1em;
+  font-size: 1rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 75px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--pink);
+  box-shadow: 0 0 0 3px rgba(244, 114, 182, 0.2);
+}
 
 /* 結果框 */
 .result-box{
@@ -48,5 +96,15 @@ button:hover{background:#c4667b}
   padding:14px;
   border-radius:10px;
 }
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg fill='gray' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75em center;
+  background-size: 1em;
+  padding-right: 2.5em;
+}
+
 #result{font-size:20px;font-weight:bold;color:#d77a8a;margin:0}
 .steps{font-size:14px;color:#555;margin-top:6px}
